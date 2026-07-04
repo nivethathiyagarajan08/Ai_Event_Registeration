@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Event Registration Agent</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Include Lucide icons for UI -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <i data-lucide="cpu"></i>
+            <span>AIEventAgent</span>
+        </div>
+        <div class="nav-links">
+            <a href="#" id="nav-register" class="active">Registration</a>
+            <a href="#" id="nav-dashboard">Organizer Dashboard</a>
+        </div>
+    </nav>
+
+    <!-- Registration View -->
+    <main id="view-registration" class="view active">
+        <div class="hero">
+            <h1>Register for the Future</h1>
+            <p>Experience seamless AI-powered event registration.</p>
+        </div>
+        
+        <div class="container registration-container">
+            <div class="form-card">
+                <h2>Event Registration</h2>
+                <form id="registration-form">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" id="reg-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" id="reg-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Mobile Number</label>
+                        <input type="tel" id="reg-phone" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>College/Organization</label>
+                            <input type="text" id="reg-org" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Department</label>
+                            <input type="text" id="reg-dept" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Event Selection</label>
+                        <select id="reg-event" required>
+                            <option value="">Select an event...</option>
+                            <option value="ai-workshop">AI Innovation Workshop (July 20, 2026)</option>
+                            <option value="tech-summit">Global Tech Summit (Aug 15, 2026)</option>
+                            <option value="hackathon">CodeRed Hackathon (Sep 5, 2026)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Number of Participants</label>
+                        <input type="number" id="reg-participants" min="1" max="5" value="1" required>
+                    </div>
+
+                    <div class="form-checkbox">
+                        <input type="checkbox" id="reg-terms" required>
+                        <label for="reg-terms">I agree to the Terms & Conditions</label>
+                    </div>
+
+                    <button type="submit" class="btn-primary" id="btn-submit">
+                        <span>Register Now</span>
+                        <i data-lucide="arrow-right"></i>
+                    </button>
+                </form>
+            </div>
+            
+            <div class="ai-chat-card">
+                <div class="chat-header">
+                    <i data-lucide="bot"></i>
+                    <h3>AI Assistant</h3>
+                </div>
+                <div class="chat-messages" id="chat-messages">
+                    <div class="message ai">
+                        Hi! I'm your AI Registration Assistant. Do you have any questions about the events?
+                    </div>
+                </div>
+                <div class="chat-input">
+                    <input type="text" id="chat-input-field" placeholder="Ask a question...">
+                    <button id="btn-chat-send"><i data-lucide="send"></i></button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Success Modal -->
+        <div id="success-modal" class="modal">
+            <div class="modal-content">
+                <i data-lucide="check-circle" class="success-icon"></i>
+                <h2>Registration Successful!</h2>
+                <div class="ticket">
+                    <p><strong>Registration ID:</strong> <span id="ticket-id">EVT-2026-1001</span></p>
+                    <p><strong>Name:</strong> <span id="ticket-name">Nivethasri T</span></p>
+                    <p><strong>Event:</strong> <span id="ticket-event">AI Innovation Workshop</span></p>
+                    <p><strong>Status:</strong> Confirmed</p>
+                    <div class="qr-placeholder">
+                        <i data-lucide="qr-code"></i>
+                        <span>QR Code Generated</span>
+                    </div>
+                </div>
+                <button class="btn-primary" id="btn-close-modal">Close</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Dashboard View -->
+    <main id="view-dashboard" class="view">
+        <div class="dashboard-layout">
+            <aside class="sidebar">
+                <div class="sidebar-menu">
+                    <a href="#" class="active"><i data-lucide="layout-dashboard"></i> Executive</a>
+                    <a href="#"><i data-lucide="users"></i> Participants</a>
+                    <a href="#"><i data-lucide="calendar"></i> Events</a>
+                    <a href="#"><i data-lucide="bar-chart-2"></i> Analytics</a>
+                    <a href="#"><i data-lucide="zap"></i> AI Insights</a>
+                </div>
+            </aside>
+            <div class="dashboard-content">
+                <h2>Executive Dashboard</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <h3>Total Registrations</h3>
+                            <i data-lucide="users" class="icon-blue"></i>
+                        </div>
+                        <div class="stat-value">1,248</div>
+                        <div class="stat-trend positive"><i data-lucide="trending-up"></i> +12% this week</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <h3>Available Seats</h3>
+                            <i data-lucide="armchair" class="icon-purple"></i>
+                        </div>
+                        <div class="stat-value">352</div>
+                        <div class="stat-trend negative"><i data-lucide="trending-down"></i> Filling fast</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <h3>Confirmed Revenue</h3>
+                            <i data-lucide="credit-card" class="icon-green"></i>
+                        </div>
+                        <div class="stat-value">$45,200</div>
+                        <div class="stat-trend positive"><i data-lucide="trending-up"></i> +5% from yesterday</div>
+                    </div>
+                </div>
+
+                <div class="ai-insights-section mt-4">
+                    <h3><i data-lucide="sparkles"></i> AI Insights</h3>
+                    <div class="insights-grid">
+                        <div class="insight-card">
+                            <h4>Attendance Forecast</h4>
+                            <p>Based on current trends, we predict a <strong>92% turnout</strong> for the AI Innovation Workshop.</p>
+                        </div>
+                        <div class="insight-card">
+                            <h4>Peak Registration</h4>
+                            <p>Most registrations occur between <strong>6 PM - 8 PM</strong>. Consider sending reminders during this window.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="recent-participants mt-4">
+                    <h3>Recent Registrations</h3>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Event</th>
+                                <th>Status</th>
+                                <th>AI Risk Analysis</th>
+                            </tr>
+                        </thead>
+                        <tbody id="participant-table-body">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/app.js"></script>
+    <script>
+        // Initialize icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
