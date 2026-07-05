@@ -69,13 +69,7 @@ npm run dev
 * Event analytics
 * User authentication
 
----
 
-## Author
-
-**Nivethasri Thiyagarajan**
-
----
 
 ## License
 
